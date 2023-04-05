@@ -1,6 +1,11 @@
 package hw56;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 
 /*
 Напишите метод для поиска числа в заранее отсортированном по убыванию списке различных целых чисел.
@@ -27,5 +32,22 @@ public class IndexSearch {
       return left;
     }
     return -1;
+  }
+
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter elements' numbers: ");
+    int n = scanner.nextInt();
+
+    ArrayList<Integer> numbers = new ArrayList<>(n);
+    for (int i = 0; i < n; ++i) {
+      numbers.add(scanner.nextInt());
+    }
+    // сортируем список в порядке убывания
+    Collections.sort(numbers, Comparator.reverseOrder());
+
+    for (int number : numbers) {
+      System.out.println(number);
+    }
   }
 }
