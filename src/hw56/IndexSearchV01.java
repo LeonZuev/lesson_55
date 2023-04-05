@@ -1,15 +1,11 @@
 package hw56;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-/*
-Напишите метод для поиска числа в заранее отсортированном по убыванию списке различных целых чисел.
-Метод должен вернуть индекс, если элемент найден, и -1, если элемент не найден.
-Используйте в качестве образца задачу 2 из классной работы.
- */
-public class IndexSearch {
+public class IndexSearchV01 {
 
   public static int indexOfNumber(ArrayList<Integer> numbers, int target) {
     int left = 0;
@@ -33,18 +29,18 @@ public class IndexSearch {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter elements' numbers: ");
-    int n = scanner.nextInt();
-
-    ArrayList<Integer> numbers = new ArrayList<>(n);
-    for (int i = 0; i < n; ++i) {
-      numbers.add(scanner.nextInt());
+    System.out.print("Enter elements' numbers throw space: ");
+    String inputLine = scanner.nextLine();
+    String[] input = inputLine.split(" ");
+    ArrayList<Integer> numbers = new ArrayList<>(input.length);
+    for (String n : input) {
+      numbers.add(Integer.parseInt(n)); // O(n)
     }
     // сортируем список в порядке убывания
-    numbers.sort(Comparator.reverseOrder());
+    Collections.sort(numbers, Comparator.reverseOrder());
 
     for (int number : numbers) {
-      System.out.println(number);
+      System.out.print("[" + number + "] ");
     }
 
     System.out.print("Enter number for search: ");
