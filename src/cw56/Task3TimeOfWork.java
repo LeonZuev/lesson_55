@@ -1,4 +1,4 @@
-package cw55;
+package cw56;
 
 public class Task3TimeOfWork {
 
