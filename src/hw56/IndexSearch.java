@@ -12,19 +12,23 @@ import java.util.Scanner;
 public class IndexSearch {
 
   public static int indexOfNumber(ArrayList<Integer> descendingNumbers, int target) {
-    int left = 0;
+    int left = 0; // граница области поиска (индексы)
     int right = descendingNumbers.size();
-    while (left < right - 1) {
+    while (left < right - 1) { // O(log N) // идея сужения границ
       int mid = (left + right) / 2;
-      if (descendingNumbers.get(mid) == target) {
-        return mid;
+      if (descendingNumbers.get(mid) == target) {  //ArrayList.get() - O(1)
+        return mid; // границу не включаем, поэтому просто mid
       }
-      if (descendingNumbers.get(mid) > target) {
+
+      if (descendingNumbers.get(mid) > target) { //ArrayList.get() - O(1)
+        // список отсортирован по убыванию, поэтому
+        //если середина больше, чем цель, значит цель справа, значит двигаем левую границу
         left = mid;
       } else {
         right = mid;
       }
     }
+    //ArrayList.get() - O(1)
     if (left < descendingNumbers.size() && descendingNumbers.get(left) == target) {
       return left;
     }
