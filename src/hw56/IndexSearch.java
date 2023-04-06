@@ -10,7 +10,12 @@ import java.util.Scanner;
 Используйте в качестве образца задачу 2 из классной работы.
  */
 public class IndexSearch {
-
+  /**
+   * Поиск элемента в отсортированном по убыванию списке
+   * @param descendingNumbers отсортированный по убыванию список различных целых чисел
+   * @param target число, которое необходимо найти
+   * @return индекс числа в списке или -1, если число не найдено
+   */
   public static int indexOfNumber(ArrayList<Integer> descendingNumbers, int target) {
     int left = 0; // граница области поиска (индексы)
     int right = descendingNumbers.size();

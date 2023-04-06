@@ -7,6 +7,12 @@ import java.util.Scanner;
 
 public class IndexSearchV01 {
 // Бинарный поиск работает только с сортированным списком, поэтому только эррэй лист
+  /**
+   * Поиск элемента в отсортированном по убыванию списке
+   * @param descendingNumbers отсортированный по убыванию список различных целых чисел
+   * @param target число, которое необходимо найти
+   * @return индекс числа в списке или -1, если число не найдено
+   */
   public static int indexOfNumber(ArrayList<Integer> descendingNumbers, int target) {
     int left = 0;
     int right = descendingNumbers.size();
