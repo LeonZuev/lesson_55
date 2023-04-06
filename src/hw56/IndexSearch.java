@@ -11,21 +11,21 @@ import java.util.Scanner;
  */
 public class IndexSearch {
 
-  public static int indexOfNumber(ArrayList<Integer> numbers, int target) {
+  public static int indexOfNumber(ArrayList<Integer> descendingNumbers, int target) {
     int left = 0;
-    int right = numbers.size();
+    int right = descendingNumbers.size();
     while (left < right - 1) {
       int mid = (left + right) / 2;
-      if (numbers.get(mid) == target) {
+      if (descendingNumbers.get(mid) == target) {
         return mid;
       }
-      if (numbers.get(mid) > target) {
+      if (descendingNumbers.get(mid) > target) {
         left = mid;
       } else {
         right = mid;
       }
     }
-    if (left < numbers.size() && numbers.get(left) == target) {
+    if (left < descendingNumbers.size() && descendingNumbers.get(left) == target) {
       return left;
     }
     return -1;
